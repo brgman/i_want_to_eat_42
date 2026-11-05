@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Steak Overflow – Cuisine ouverte ?",
+  "version": "1.0",
+  "description": "Vérifie chaque minute si la cuisine est ouverte sur steakoverflow.42paris.fr",
+  "permissions": ["tabs", "alarms", "notifications", "storage", "https://steakoverflow.42paris.fr/*"],
+  "background": { "scripts": ["background.js"] },
+  "content_scripts": [
+    { "matches": ["https://steakoverflow.42paris.fr/*"], "js": ["content.js"], "run_at": "document_idle" }
+  ],
+  "browser_action": { "default_title": "Cuisine : ?", "default_popup": "popup.html" },
+  "browser_specific_settings": { "gecko": { "id": "kuzn-watcher@local" } }
+}
